@@ -29,7 +29,11 @@ class Home extends StatelessWidget {
     return Container(
       width: sizeX,
       height: sizeY,
-      child: Column(
+      child: Row(
+        //verticalDirection: VerticalDirection.down,
+        //textDirection: TextDirection.ltr,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: createSquares(5)
       ),
     );
@@ -42,12 +46,14 @@ class Home extends StatelessWidget {
     
     List<Widget> squares = List<Widget>();
     while (i < numSquares) {
-      Container square = Container(
+      Expanded square = Expanded(
+        flex: i,
+        child: Container(
         color: colors[i],
-        width: 60,
+        //width: 60,
         height: 60,
         child: Text(i.toString()),
-      );
+      ));
       i++;
       squares.add(square);
     }
